@@ -1,9 +1,8 @@
-import React from 'react';
 import './style.scss';
 const Preloader = () => {
   return (
     <div className="loader-wrapper">
-      <span class="loader"></span>
+      <span className="loader"></span>
     </div>
   );
 };

@@ -1,10 +1,11 @@
 import { useState, useEffect, ChangeEvent } from 'react';
 import Title from '../../common/Title/Title';
 import './style.scss';
-import CustomInput from '../../common/DebounceInput/Input';
-import { fetchSearchUsers, setSearchValue } from '../../redux/slices/usersSlice';
-import { useSelector, useDispatch } from 'react-redux';
+import { fetchSearchUsers,  setOneUser } from '../../redux/slices/usersSlice';
+import { useDispatch } from 'react-redux';
 import { useDebounce } from 'usehooks-ts';
+
+import { motion } from 'framer-motion';
 
 const SearchForm = () => {
   const dispatch = useDispatch();
@@ -13,11 +14,15 @@ const SearchForm = () => {
   const debouncedValue = useDebounce<string>(value, 1000);
 
   useEffect(() => {
-    console.log('HELLO');
-    dispatch(setSearchValue(value));
-
+          //@ts-ignore
+    dispatch(fetchSearchUsers(value)); 
     if (value.length > 0) {
+      //@ts-ignore
       dispatch(fetchSearchUsers(value));
+    }
+
+    if (value.length <= 0) {
+      dispatch(setOneUser({}));
     }
   }, [debouncedValue]);
 
@@ -31,7 +36,9 @@ const SearchForm = () => {
         <Title text={'Поиск сотрудников'} />
       </div>
       <form>
-        <input
+        <motion.input
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
           className="form__input"
           placeholder="Введите Id или имя "
           type="text"

@@ -18,12 +18,14 @@
   }
 
   &__list {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-
     max-height: 370px;
     overflow: scroll;
+
+    li {
+      &:not(:last-child) {
+        margin-bottom: 18px;
+      }
+    }
   }
 
   &__image {

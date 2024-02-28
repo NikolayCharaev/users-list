@@ -1,0 +1,39 @@
+.user {
+  position: relative;
+  &-there {
+    padding: 30px 20px;
+
+    display: flex;
+    gap: 60px;
+
+    @media (max-width: 1200px) {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
+  &-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    & > div {
+      margin-top: 20px;
+
+      p {
+        margin-top: 25px;
+      }
+    }
+  }
+
+  b {
+    font-size: 14px;
+    color: #333333;
+  }
+
+  &-not {
+    display: flex;
+    justify-content: center;
+    margin-top: 250px;
+  }
+}
