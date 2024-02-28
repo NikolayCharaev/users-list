@@ -1,0 +1,18 @@
+.search {
+  height: 590px;
+  -webkit-box-shadow: 0px 2px 7px -1px rgba(0, 0, 0, 0.48);
+  -moz-box-shadow: 0px 2px 7px -1px rgba(0, 0, 0, 0.48);
+  box-shadow: 0px 2px 7px -1px rgba(0, 0, 0, 0.48);
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  &__left {
+    height: 100%;
+    padding: 23px 27px;
+    display: flex;
+    flex-direction: column;
+    width: 310px;
+    border-right: 1px solid #dededd;
+
+  }
+}

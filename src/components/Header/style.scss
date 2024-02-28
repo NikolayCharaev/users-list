@@ -1,0 +1,16 @@
+.header { 
+    margin-bottom: 26px;
+    &__top { 
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+    &__logo{ 
+        color: #E31F24;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 39px;
+    }
+}

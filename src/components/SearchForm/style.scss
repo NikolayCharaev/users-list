@@ -1,0 +1,24 @@
+.form { 
+
+
+    &__top { 
+        margin-bottom: 22px;
+    }
+
+    &__input{ 
+        margin-bottom: 22px;
+        padding: 14px 16px;
+        width: 240px;
+        color: #76787D;
+        font-size: 14px;
+        outline: none;
+        border: 1px solid #76787D;
+        border-radius: 8px;
+
+
+       *::placeholder{ 
+        color: #76787D;
+
+       }
+    }
+}
