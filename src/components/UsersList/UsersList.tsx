@@ -35,7 +35,7 @@ interface IUserListProps {
   searchValue: string;
 }
 
-const UsersList = ({ users, status, searchValue }: IUserListProps) => {
+const UsersList = ({ users, status, searchValue } : IUserListProps) => {
   const dispatch = useDispatch();
   return (
     <div className="users">
@@ -49,7 +49,7 @@ const UsersList = ({ users, status, searchValue }: IUserListProps) => {
 
       {users.length > 0 && (
         <motion.ul variants={container} initial="hidden" animate="visible" className="users__list">
-          {users.map((elem) => {
+          {users.map((elem : User) => {
             return (
               <motion.li
                 variants={item}

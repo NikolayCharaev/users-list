@@ -1,7 +1,7 @@
 import { useState, useEffect, ChangeEvent } from 'react';
 import Title from '../../common/Title/Title';
 import './style.scss';
-import { fetchSearchUsers,  setOneUser } from '../../redux/slices/usersSlice';
+import { fetchSearchUsers,  setOneUser, setSearchValue } from '../../redux/slices/usersSlice';
 import { useDispatch } from 'react-redux';
 import { useDebounce } from 'usehooks-ts';
 
@@ -15,7 +15,7 @@ const SearchForm = () => {
 
   useEffect(() => {
           //@ts-ignore
-    dispatch(fetchSearchUsers(value)); 
+    dispatch(setSearchValue(value)); 
     if (value.length > 0) {
       //@ts-ignore
       dispatch(fetchSearchUsers(value));
