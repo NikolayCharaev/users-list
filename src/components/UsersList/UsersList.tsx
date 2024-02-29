@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Title from '../../common/Title/Title';
 import Preloader from '../Preloader/Preloader';
 import userIcon from '../../assets/user-image.png';
@@ -35,7 +36,8 @@ interface IUserListProps {
   searchValue: string;
 }
 
-const UsersList = ({ users, status, searchValue } : IUserListProps) => {
+const UsersList = ({ users, status, searchValue }: IUserListProps) => {
+  const [active, setActive] = useState<number>(0);
   const dispatch = useDispatch();
   return (
     <div className="users">
@@ -49,15 +51,20 @@ const UsersList = ({ users, status, searchValue } : IUserListProps) => {
 
       {users.length > 0 && (
         <motion.ul variants={container} initial="hidden" animate="visible" className="users__list">
-          {users.map((elem : User) => {
+          {users.map((elem: User) => {
             return (
               <motion.li
                 variants={item}
                 key={elem.id}
-                onClick={() => dispatch(setOneUser(elem))}
+                onClick={() => {
+                  setActive(elem.id);
+                  dispatch(setOneUser(elem));
+                }}
                 className="users__item">
                 <img className="users__image" src={userIcon} alt="user-icon" />
-                <div className="users__info">
+                <div
+                  className="users__info"
+                  style={{ backgroundColor: active === elem.id ? '#e0e0e0' : '#FFF' }}>
                   <Title text={elem.name} />
                   <p className="truncate">{elem.email}</p>
                 </div>
