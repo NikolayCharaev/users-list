@@ -12,7 +12,7 @@
     cursor: pointer;
     &:hover {
       .users__info {
-        background-color: #e0e0e0;
+        background-color: #e0e0e0 !important;
       }
     }
   }
